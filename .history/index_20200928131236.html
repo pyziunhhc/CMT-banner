@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <style>
+        body {
+            width: 905px;
+            height: 900px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        @keyframes show {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fromLeftToRight {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 0%;
+            }
+
+        }
+
+        @keyframes fromRightToLeft {
+            0% {
+                right: -100%;
+            }
+
+            100% {
+                right: 0%;
+            }
+        }
+
+        @keyframes sawFromRightToLeft {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                left: 0%;
+                opacity: 1;
+                transform: rotate(-360deg);
+            }
+
+            50% {
+
+                left: 0%;
+                opacity: 1;
+                transform: rotate(-360deg);
+            }
+
+            100% {
+                left: -150%;
+                transform: rotate(-720deg);
+            }
+        }
+
+        .saw-cmt__container--wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://b2b-itatools.pl//Pliki/obrazki/main_bg.png');
+            animation: show 4s ease;
+        }
+
+        .saw-cmt__header {
+            display: flex;
+            margin-top: 6%;
+            position: relative;
+        }
+
+        .saw-cmt__header>.right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .saw-cmt__header>.right>.logo {
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+            opacity: 0;
+        }
+
+        .saw-cmt__header>.right>.logo.animate {
+            animation: show 1s ease;
+            opacity: 1;
+        }
+
+        .saw-cmt__header>.right>.logo>img {
+            width: 80%;
+
+        }
+
+        .saw-cmt__header>.left {
+            position: relative;
+            left: -100%;
+        }
+
+        .saw-cmt__header>.left.animate {
+            animation: fromLeftToRight 2s ease;
+            left: 0%;
+        }
+
+        .saw-cmt__header>.left>.background {
+            position: relative;
+        }
+
+        .saw-cmt__header>.left>.background>.text {
+            position: absolute;
+            top: 12%;
+            left: 6%;
+        }
+
+        .saw-cmt__header>.left>.background>.text>p {
+            margin: 0;
+        }
+
+        .saw-cmt__header>.left>.background>.text>p:nth-child(1) {
+            color: orange;
+            font-weight: bold;
+            font-size: 2em;
+        }
+
+        .saw-cmt__header>.left>.background>.text>p:nth-child(2) {
+            color: white;
+            font-weight: bold;
+            font-size: 1.8em;
+        }
+
+        .saw-cmt__header>.left>.background>.text>p:nth-child(3) {
+            color: gray;
+            font-size: 1.5em;
+            margin-top: 2%;
+        }
+
+        .saw-cmt__header>.left>.background>.text>p>span {
+            border-right: 1px solid gray;
+            padding: 0% 2% 0% 2%;
+        }
+
+        .saw-cmt__header>.left>.background>.text>p>span:last-child {
+            border: none;
+        }
+
+        .saw-cmt__main {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+        }
+
+        .saw-cmt__main>.left+.right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-position-x: right;
+        }
+
+        .saw-cmt__main>.left {
+            position: relative;
+        }
+
+        .saw-cmt__main>.left>.saw__container {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .saw-cmt__main>.left>.saw__container>.saw {
+            opacity: 0;
+        }
+
+        .saw-cmt__main>.left>.saw__container>.saw.animate {
+            opacity: 0;
+            animation: sawFromRightToLeft 5s linear 3s infinite;
+        }
+
+        .saw-cmt__main>.left>.saw__container>img {
+            width: 80%;
+            position: relative;
+            left: 100%;
+            z-index: 1;
+        }
+
+        .saw-cmt__main>.right {
+            background-image: url('https://b2b-itatools.pl//Pliki/obrazki/orange_bg.png');
+            background-repeat: no-repeat;
+            z-index: 2;
+            right: -200%;
+            height:100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        .saw-cmt__main>.right.animate {
+            animation: fromRightToLeft 3s ease;
+            right: 0%;
+        }
+
+        .saw-cmt__main>.right>.option--row {
+            display: flex;
+            flex: 1;
+            width: 60%;
+            justify-content: space-around;
+            align-items: center;
+            margin-left: 25%;
+        }
+
+        .saw-cmt__main>.right>.option--row>.option {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .saw-cmt__main>.right>.option--row>.option>.logo {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .saw-cmt__main>.right>.option--row>.option>.logo>img[src="https://b2b-itatools.pl//Pliki/obrazki/cmt_body.png"] {
+            margin-left: 10%;
+        }
+
+        .saw-cmt__main>.right>.option--row>.option>p {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+
+        .saw-cmt__footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 6%;
+        }
+
+        .saw-cmt__footer>.left,
+        .saw-cmt__footer>.right {
+            display: flex;
+            justify-content: flex-end;
+            flex: 1;
+            opacity: 0;
+        }
+
+        .saw-cmt__footer>.left.animate,
+        .saw-cmt__footer>.right.animate {
+            animation: show 4s ease;
+            opacity: 1;
+        }
+
+        .saw-cmt__footer>.left {
+            flex: 2;
+        }
+
+        .saw-cmt__footer>.left>.text>p {
+            font-size: 1.8em;
+            text-align: right;
+            margin: 0;
+        }
+
+        .saw-cmt__footer>.left>.text>p:nth-child(1) {
+            font-weight: 100;
+        }
+
+        .saw-cmt__footer>.left>.text>p:nth-child(2) {
+            font-weight: bold;
+        }
+
+        .saw-cmt__footer>.right>img {
+            margin-right: 10%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="saw-cmt__container--wrapper">
+        <header class="saw-cmt__header">
+            <div class="left">
+                <div class="background">
+                    <img src="https://b2b-itatools.pl//Pliki/obrazki/gray_bg.png" />
+                    <div class="text">
+                        <p>NOWA JAKOŚĆ PIŁ CMT</p>
+                        <p>do elektronarzędzi</p>
+                        <p>seria: <span>281</span><span>290</span><span>291</span><span>221</span></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="right">
+                <div class="logo">
+                    <img src="https://b2b-itatools.pl//Pliki/obrazki/cmt_logo.png" />
+                </div>
+
+            </div>
+        </header>
+        <section class="saw-cmt__main">
+            <div class="left">
+                <div class="saw__container">
+                    <img src="https://b2b-itatools.pl//Pliki/obrazki/cmt_saw.png" class="saw" />
+                </div>
+
+            </div>
+            <div class="right">
+                <div class="option--row">
+
+                    <div class="option">
+                        <div class="logo">
+                            <img src="https://b2b-itatools.pl//Pliki/obrazki/cmt_shield.png" />
+                        </div>
+                        <p>Powłoka ochronna PTFE</p>
+                    </div>
+                    <div class="option">
+                        <div class="logo">
+                            <img src="https://b2b-itatools.pl//Pliki/obrazki/cmt_body.png" />
+                        </div>
+                        <p>Podwyższona twardość korpusu</p>
+                    </div>
+                </div>
+                <div class="option--row">
+
+                    <div class="option">
+                        <div class="logo">
+                            <img src="https://b2b-itatools.pl//Pliki/obrazki/cmt_silence.png" />
+                        </div>
+                        <p>Precyzyjne otwory wyciszające</p>
+                    </div>
+                    <div class="option">
+                        <div class="logo">
+                            <img src="https://b2b-itatools.pl//Pliki/obrazki/cmt_carbide.png" />
+                        </div>
+                        <p>Zwiększona żywotność węglika</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="saw-cmt__footer">
+            <div class="left">
+                <div class="text">
+                    <p>NOWOCZESNY</p>
+                    <p>SYSTEM PAKOWANIA</p>
+                </div>
+            </div>
+            <div class="right">
+                <img src="https://b2b-itatools.pl//Pliki/obrazki/cmt_package.png" />
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const animateBannerCMT = () => {
+            const header = document.querySelector('.saw-cmt__header > .left');
+            const logo = document.querySelector('.saw-cmt__header>.right > .logo');
+            const panel = document.querySelector('.saw-cmt__main>.right');
+            const saw = document.querySelector('.saw-cmt__main>.left>.saw__container>.saw')
+            const footerLeft = document.querySelector('.saw-cmt__footer > .left')
+            const footerRight = document.querySelector('.saw-cmt__footer > .right')
+            if (!header.classList.value.includes('animate')) {
+                setTimeout(() => {
+                    header.classList.add('animate')
+                    panel.classList.add('animate')
+                }, 2000)
+            } else {
+                header.classList.remove('animate')
+                panel.classList.remove('animate')
+            }
+
+            if (!logo.classList.value.includes('animate')) {
+                setTimeout(() => {
+                    logo.classList.add('animate')
+                    footerLeft.classList.add('animate')
+                    footerRight.classList.add('animate')
+                }, 4000)
+            } else {
+                logo.classList.remove('animate')
+                footerLeft.classList.remove('animate')
+                footerRight.classList.remove('animate')
+            }
+
+            if (!saw.classList.value.includes('animate')) {
+                setTimeout(() => {
+                    saw.classList.add('animate')
+                }, 3000)
+            } else {
+                saw.classList.remove('animate')
+
+            }
+        }
+        window.onload = function () {
+            animateBannerCMT()
+
+        }
+    </script>
+</body>
+
+
+</html>

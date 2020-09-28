@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <style>
+        body {
+            width: 905px;
+            height: 900px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        @keyframes show {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fromLeftToRight {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 0%;
+            }
+
+        }
+
+        .saw-cmt__container--wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-image: url('img/main_bg.png');
+            animation: show 4s ease;
+        }
+
+        .saw-cmt__header {
+            display: flex;
+            margin-top: 6%;
+            position: relative;
+        }
+
+        .saw-cmt__header>.right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .saw-cmt__header>.right>.logo {
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+            opacity: 0;
+        }
+
+        .saw-cmt__header>.right>.logo.animate {
+            opacity: 1;
+            animation: show 1s ease;
+        }
+
+        .saw-cmt__header>.right>.logo>img {
+            width: 80%;
+
+        }
+
+        .saw-cmt__header>.left {
+            position: relative;
+            left: -100%;
+        }
+
+        .saw-cmt__header>.left.animate {
+            animation: fromLeftToRight 2s ease;
+            left: 0%;
+        }
+
+        .saw-cmt__header>.left>.background {
+            position: relative;
+        }
+
+        .saw-cmt__header>.left>.background>.text {
+            position: absolute;
+            top: 12%;
+            left: 6%;
+        }
+
+        .saw-cmt__header>.left>.background>.text>p {
+            margin: 0;
+        }
+
+        .saw-cmt__header>.left>.background>.text>p:nth-child(1) {
+            color: orange;
+            font-weight: bold;
+            font-size: 2em;
+        }
+
+        .saw-cmt__header>.left>.background>.text>p:nth-child(2) {
+            color: white;
+            font-weight: bold;
+            font-size: 1.8em;
+        }
+
+        .saw-cmt__header>.left>.background>.text>p:nth-child(3) {
+            color: gray;
+            font-size: 1.5em;
+            margin-top: 2%;
+        }
+
+        .saw-cmt__header>.left>.background>.text>p>span {
+            border-right: 1px solid gray;
+            padding: 0% 2% 0% 2%;
+        }
+
+        .saw-cmt__header>.left>.background>.text>p>span:last-child {
+            border: none;
+        }
+
+        .saw-cmt__main {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .saw-cmt__main>.left+.right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-position-x: right;
+        }
+
+        .saw-cmt__main>.left {
+            position: relative;
+        }
+
+        .saw-cmt__main>.left>.saw__container {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .saw-cmt__main>.left>.saw__container>.saw {
+            animation: fromRightToleft 5s infinite;
+        }
+
+        .saw-cmt__main>.left>.saw__container>img {
+            width: 80%;
+            position: relative;
+            left: 100%;
+            z-index: 1;
+        }
+
+        .saw-cmt__main>.right {
+            background-image: url('img/orange_bg.png');
+            background-repeat: no-repeat;
+            z-index: 2;
+        }
+
+        .saw-cmt__main>.right>.option--row {
+            display: flex;
+            flex: 1;
+            width: 60%;
+            justify-content: space-around;
+            align-items: center;
+            margin-left: 20%;
+        }
+
+        .saw-cmt__main>.right>.option--row>.option {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .saw-cmt__main>.right>.option--row>.option>.logo {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .saw-cmt__main>.right>.option--row>.option>p {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .saw-cmt__footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 6%;
+        }
+
+        .saw-cmt__footer>.left,
+        .saw-cmt__footer>.right {
+            display: flex;
+            justify-content: flex-end;
+            flex: 1;
+        }
+
+        .saw-cmt__footer>.left {
+            flex: 2;
+        }
+
+        .saw-cmt__footer>.left>.text>p {
+            font-size: 1.8em;
+            text-align: right;
+            margin: 0;
+        }
+
+        .saw-cmt__footer>.left>.text>p:nth-child(1) {
+            font-weight: 100;
+        }
+
+        .saw-cmt__footer>.left>.text>p:nth-child(2) {
+            font-weight: bold;
+        }
+
+        .saw-cmt__footer>.right>img {
+            margin-right: 10%;
+        }
+
+        @keyframes fromRightToleft {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                left: 0%;
+                transform: rotate(360deg);
+            }
+
+            100% {
+                left: -150%;
+                transform: rotate(720deg);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="saw-cmt__container--wrapper">
+        <header class="saw-cmt__header">
+            <div class="left">
+                <div class="background">
+                    <img src="img/gray_bg.png" />
+                    <div class="text">
+                        <p>NOWA JAKOŚĆ PIŁ CMT</p>
+                        <p>do elektronarzędzi</p>
+                        <p>seria: <span>281</span><span>290</span><span>291</span><span>221</span></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="right">
+                <div class="logo">
+                    <img src="img/cmt_logo.png" />
+                </div>
+
+            </div>
+        </header>
+        <section class="saw-cmt__main">
+            <div class="left">
+                <div class="saw__container">
+                    <img src="img/cmt_saw.png" class="saw" />
+                </div>
+
+            </div>
+            <div class="right">
+                <div class="option--row">
+
+                    <div class="option">
+                        <div class="logo">
+                            <img src="img/cmt_shield.png" />
+                        </div>
+                        <p>Powłoka ochronna PTFE</p>
+                    </div>
+                    <div class="option">
+                        <div class="logo">
+                            <img src="img/cmt_body.png" />
+                        </div>
+                        <p>Podwyższona twardość korpusu</p>
+                    </div>
+                </div>
+                <div class="option--row">
+
+                    <div class="option">
+                        <div class="logo">
+                            <img src="img/cmt_silence.png" />
+                        </div>
+                        <p>Precyzyjne otwory wyciszające</p>
+                    </div>
+                    <div class="option">
+                        <div class="logo">
+                            <img src="img/cmt_carbide.png" />
+                        </div>
+                        <p>Zwiększona żywotność węglika</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="saw-cmt__footer">
+            <div class="left">
+                <div class="text">
+                    <p>NOWOCZESNY</p>
+                    <p>SYSTEM PAKOWANIA</p>
+                </div>
+            </div>
+            <div class="right">
+                <img src="img/cmt_package.png" />
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const header = document.querySelector('.saw-cmt__header > .left');
+            const logo = document.querySelector('.saw-cmt__header>.right')
+            if (!header.classList.value.includes('animate')) {
+                setTimeout(() => {
+                    header.classList.add('animate')
+                }, 1000)
+            }
+            if (!logo.classList.value.includes('animate')){
+                setTimeout(() => {
+                    logo.classList.add('animate')
+                }, 1000)
+            }
+        }
+    </script>
+</body>
+
+
+</html>
